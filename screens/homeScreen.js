@@ -3,6 +3,7 @@ import {Text} from "react-native";
 import * as React from "react";
 import {StyleSheet} from "react-native";
 import { Icon } from 'react-native-elements'
+import {maxWidth} from "styled-system";
 const style = StyleSheet.create({
     container: {
         flex: 1,
@@ -20,7 +21,7 @@ export default class HomeScreen extends React.Component {
             <NativeBaseProvider>
                 <Box style={style.container} safeArea flex={1} p="8" py="8" w="100%" mx="auto">
                     <Icon    raised  name='headphones'  type='font-awesome'  color='#f50' size={100}/>
-                    <Heading size="lg" fontWeight="600" color='blue'>
+                    <Heading size="lg" fontWeight="600" color="#1bddd4">
                         Bem vindo(a)!
                     </Heading>
                     <Heading mt="1" color="white" fontWeight="medium" size="xs">
@@ -37,7 +38,7 @@ export default class HomeScreen extends React.Component {
                                 }}>
                                 Login
                             </FormControl.Label>
-                            <Input style={{color: 'white'}} />
+                            <Input type="password" style={{color: 'white',width: 200}} />
                         </FormControl>
                         <FormControl>
                             <FormControl.Label
@@ -48,7 +49,7 @@ export default class HomeScreen extends React.Component {
                                 }}>
                                 Senha
                             </FormControl.Label>
-                            <Input type="password" style={{color: 'white'}} />
+                            <Input type="password" style={{color: 'white', width: 200}} />
                             <Link
                                 _text={{ fontSize: 'xs', fontWeight: '500', color: '#a5ded1' }}
                                 alignSelf="flex-end"
@@ -69,7 +70,7 @@ export default class HomeScreen extends React.Component {
                                     fontWeight: 'medium',
                                     fontSize: 'sm',
                                 }}
-                                href="#">
+                                >
                                 Cadastrar
                             </Link>
                         </HStack>
