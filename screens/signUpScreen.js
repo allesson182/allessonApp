@@ -30,28 +30,28 @@ export default class SignUpScreen extends React.Component {
                                     _text={{ color: 'white', fontSize: 'xs', fontWeight: 500 }}>
                                     Nome
                                 </FormControl.Label>
-                                <Input style={{color: 'white'}} />
+                                <Input style={{color: 'white',width: 200}} />
                             </FormControl>
                             <FormControl>
                                 <FormControl.Label
                                     _text={{ color: 'white', fontSize: 'xs', fontWeight: 500 }}>
                                     CPF
                                 </FormControl.Label>
-                                <Input style={{color: 'white'}} />
+                                <Input style={{color: 'white',width: 200}} />
                             </FormControl>
                             <FormControl>
                                 <FormControl.Label
                                     _text={{ color: 'white', fontSize: 'xs', fontWeight: 500 }}>
                                     E-mail
                                 </FormControl.Label>
-                                <Input type="email" style={{color: 'white'}} />
+                                <Input type="email" style={{color: 'white',width: 200}} />
                             </FormControl>
                             <FormControl>
                                 <FormControl.Label
                                     _text={{ color: 'white', fontSize: 'xs', fontWeight: 500 }}>
                                     Senha
                                 </FormControl.Label>
-                                <Input type="password" style={{color: 'white'}} />
+                                <Input type="password" style={{color: 'white',width: 200}} />
                             </FormControl>
                             <Button onPress={() => this.props.navigation.navigate('Home')} mt="2" colorScheme="indigo" _text={{ color: 'white' }}>
                                 Cadastrar
