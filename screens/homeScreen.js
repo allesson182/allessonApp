@@ -38,7 +38,7 @@ export default class HomeScreen extends React.Component {
                                 }}>
                                 Login
                             </FormControl.Label>
-                            <Input type="password" style={{color: 'white',width: 200}} />
+                            <Input  style={{color: 'white',width: 200}} />
                         </FormControl>
                         <FormControl>
                             <FormControl.Label
