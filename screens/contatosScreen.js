@@ -34,13 +34,13 @@ export default class contatosScreen extends React.Component {
                 tel: '(81) 99451-1258'
             }]
         return (
-            <View>
-                <Header leftComponent={{icon :'menu'}} centerComponent={{text:'Contatos'}} rightComponent={{icon: 'add', onPress: event => this.props.navigation.navigate('Home')}}/>
+            <View >
+                <Header  leftComponent={{icon :'menu'}} centerComponent={{text:'Contatos'}} rightComponent={{icon: 'add', onPress: event => this.props.navigation.navigate('CadastroContato')}}/>
                 {
                     list.map((l, i) => (
-                        <ListItem key={i} bottomDivider>
-                            <Avatar source={{uri: l.avatar_url}} />
-                                <ListItem.Content>
+                        <ListItem onPress={() => this.props.navigation.navigate("AlteracaoContato")} key={i} bottomDivider>
+                            <Avatar onPress={() => this.props.navigation.navigate("AlteracaoContato")} source={{uri: l.avatar_url}} />
+                                <ListItem.Content >
                                     <ListItem.Title>{l.name}</ListItem.Title>
                                     <ListItem.Subtitle>{l.subtitle}</ListItem.Subtitle>
                                     <ListItem.Subtitle>{l.tel}</ListItem.Subtitle>
@@ -48,6 +48,7 @@ export default class contatosScreen extends React.Component {
                         </ListItem>
                             ))
                         }
+
             </View>
 
 

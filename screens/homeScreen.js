@@ -4,6 +4,9 @@ import * as React from "react";
 import {StyleSheet} from "react-native";
 import { Icon } from 'react-native-elements'
 import {maxWidth} from "styled-system";
+import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
+import {faDragon} from "@fortawesome/free-solid-svg-icons";
+
 const style = StyleSheet.create({
     container: {
         flex: 1,
@@ -20,7 +23,8 @@ export default class HomeScreen extends React.Component {
         return (
             <NativeBaseProvider>
                 <Box style={style.container} safeArea flex={1} p="8" py="8" w="100%" mx="auto">
-                    <Icon    raised  name='headphones'  type='font-awesome'  color='#f50' size={100}/>
+                    {/*<Icon    raised  name='headphones'  type='font-awesome'  color='#f50' size={100}/>*/}
+                    <FontAwesomeIcon icon={ faDragon} size={150} color={'#1bddd4'}/>
                     <Heading size="lg" fontWeight="600" color="#1bddd4">
                         Bem vindo(a)!
                     </Heading>
@@ -57,7 +61,7 @@ export default class HomeScreen extends React.Component {
                                 Esqueceu a senha?
                             </Link>
                         </FormControl>
-                        <Button mt="2" colorScheme="indigo" _text={{ color: 'white' }}>
+                        <Button onPress={() => this.props.navigation.navigate('Contatos')} mt="2" colorScheme="indigo" _text={{ color: 'white' }}>
                             Entrar
                         </Button>
                         <HStack mt="6" justifyContent="center">
