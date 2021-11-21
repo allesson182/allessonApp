@@ -44,7 +44,7 @@ export default function  SignUpScreen({navigation}) {
             .then((userCredential) => {
                 // Signed in
                 const user = userCredential.user;
-                navigation.navigate("HomeScreen")
+                navigation.navigate("Home")
                 // ...
             })
             .catch((error) => {
