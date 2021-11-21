@@ -19,11 +19,9 @@ const style = StyleSheet.create({
 });
 export default function HomeScreen({route,navigation}){
 
-        const[email, setEmail] = useState("");
-        const[senha, setSenha] = useState("");
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
+    const firebaseConfig = {
             apiKey: "AIzaSyCMcoNWvUycx1FRDhJhYywtoD_nMEeFfIY",
             authDomain: "allessonapp.firebaseapp.com",
             projectId: "allessonapp",
@@ -35,6 +33,9 @@ export default function HomeScreen({route,navigation}){
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
+    const[email, setEmail] = useState("");
+    const[senha, setSenha] = useState("");
+    const[erro, setErro] = useState("");
 
 function fazerLogin(){
     const auth = getAuth();
@@ -49,7 +50,8 @@ function fazerLogin(){
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.log("Erro:", errorMessage)
+            setErro(errorMessage);
+            console.log("Erro:", errorMessage);
         });
 
 }
@@ -107,6 +109,7 @@ function fazerLogin(){
                         <Button onPress={() => {fazerLogin()}} mt="2" colorScheme="indigo" _text={{ color: 'white' }}>
                             Entrar
                         </Button>
+                        <text>{erro}</text>
                         <HStack mt="6" justifyContent="center">
                             <Text fontSize="sm" color="muted.700" fontWeight={400}>
                                 Novo usuario?{' '}
