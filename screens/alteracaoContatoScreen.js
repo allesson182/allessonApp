@@ -1,4 +1,4 @@
-import {Box, Button, FormControl, Heading, HStack, Input, Link, NativeBaseProvider, VStack} from "native-base";
+import {Alert, Box, Button, FormControl, Heading, HStack, Input, Link, NativeBaseProvider, VStack} from "native-base";
 import {StyleSheet, Text, TextInput} from "react-native";
 import * as React from "react";
 import {Icon} from "react-native-elements";
@@ -14,7 +14,7 @@ const style = StyleSheet.create({
         justifyContent: 'center'
     }
 });
-export default function AlteracaoContatoScreen({route ,navgation}) {
+export default function AlteracaoContatoScreen({route ,navigation}) {
     const [getNome, setNome] = useState("");
     const [getTelefone, setTelefone] = useState("");
     const [getCpf, setCpf] = useState("");
@@ -52,7 +52,15 @@ export default function AlteracaoContatoScreen({route ,navgation}) {
             });
     }
 
-
+    function deletar() {
+        axios.delete('http://professornilson.com/testeservico/clientes/'+getId)
+            .then(function (response) {
+                navigation.navigate("Contatos")
+                console.log(response);
+            }).catch(function (error) {
+                console.log(error);
+            })
+    }
     return (
         <NativeBaseProvider>
             <Box style={style.container} safeArea flex={1} p="2" w="100%" mx="auto" py="8">
@@ -95,7 +103,7 @@ export default function AlteracaoContatoScreen({route ,navgation}) {
                     <Button onPress={() => atualizar()} mt="2" colorScheme="indigo" _text={{color: 'white'}}>
                         Atualizar
                     </Button>
-                    <Button style={{backgroundColor: '#e25f5f'}} onPress={() => navigation.navigate('Contatos')} mt="2"
+                    <Button style={{backgroundColor: '#e25f5f'}} onPress={() => deletar()} mt="2"
                             colorScheme="indigo" _text={{color: 'white'}}>
                         Excluir
                     </Button>
