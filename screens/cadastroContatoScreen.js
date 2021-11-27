@@ -49,7 +49,7 @@ export default class CadastroContatoScreen extends React.Component {
                             </FormControl.Label>
                             <Input type="email" style={{color: 'white',width: 200}} />
                         </FormControl>
-                        <Button onPress={() => this.props.navigation.navigate('Contatos')} mt="2" colorScheme="indigo" _text={{ color: 'white' }}>
+                        <Button onPress={() => navigation.navigate('Contatos')} mt="2" colorScheme="indigo" _text={{ color: 'white' }}>
                             Cadastrar
                         </Button>
                     </VStack>
