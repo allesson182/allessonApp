@@ -14,7 +14,10 @@ const style = StyleSheet.create({
 
 
 export default function contatosScreen({route, navigation }) {
+
+    const [getErro, setErro] = useState("");
     const[getContatoList, setContatoList] = useState([]);
+
     useEffect(() => {
         getContatos()
     }, [])
@@ -23,6 +26,7 @@ export default function contatosScreen({route, navigation }) {
             console.log("response", response)
             setContatoList(response.data)
         }).catch(function (error){
+            setErro(error.message)
             console.log("erro:", error)
         })
     }
@@ -30,10 +34,12 @@ export default function contatosScreen({route, navigation }) {
     return (
             <View >
                 <ScrollView>
-                <Header  leftComponent={{icon :'menu'}} centerComponent={{text:'Contatos'}} rightComponent={{icon: 'add', onPress: event => this.props.navigation.navigate('CadastroContato')}}/>
+                <Header  leftComponent={{icon :'menu'}} centerComponent={{text:'Contatos'}}
+                         rightComponent={{icon: 'add', onPress: event => navigation.navigate('CadastroContato')}}/>
+                    <text>{getErro}</text>
                 {
                     getContatoList.map((contato, i) => (
-                        <ListItem onPress={() => navigation.navigate("AlteracaoContato", contato)} key={i} bottomDivider>
+                        <ListItem  onPress={() => navigation.navigate("AlteracaoContato", contato)} key={i} bottomDivider>
                             <Avatar onPress={() => navigation.navigate("AlteracaoContato", contato)} source={{uri: 'https://i.pinimg.com/236x/d0/fa/de/d0fade8e8337e9a7af60d24f683b08f9.jpg'}} />
                                 <ListItem.Content >
                                     <ListItem.Title>{contato.nome}</ListItem.Title>

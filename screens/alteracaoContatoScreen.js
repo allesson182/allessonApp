@@ -20,6 +20,7 @@ export default function AlteracaoContatoScreen({route ,navigation}) {
     const [getCpf, setCpf] = useState("");
     const [getId, setId] = useState("");
     const [getEmail, setEmail] = useState("");
+    const [getErro, setErro] = useState("");
 
     useEffect(() => {
         if (route.params) {
@@ -58,6 +59,7 @@ export default function AlteracaoContatoScreen({route ,navigation}) {
                 navigation.navigate("Contatos")
                 console.log(response);
             }).catch(function (error) {
+                setErro(error.message)
                 console.log(error);
             })
     }
@@ -100,6 +102,15 @@ export default function AlteracaoContatoScreen({route ,navigation}) {
                                onChangeText={text => setTelefone(text)}
                                value={getTelefone}/>
                     </FormControl>
+                    <FormControl>
+                        <FormControl.Label
+                            _text={{color: 'white', fontSize: 'xs', fontWeight: 500}}>
+                            CPF
+                        </FormControl.Label>
+                        <Input type="email" style={{color: 'white', width: 200}}
+                               onChangeText={text => setCpf(text)}
+                               value={getCpf}/>
+                    </FormControl>
                     <Button onPress={() => atualizar()} mt="2" colorScheme="indigo" _text={{color: 'white'}}>
                         Atualizar
                     </Button>
@@ -107,8 +118,10 @@ export default function AlteracaoContatoScreen({route ,navigation}) {
                             colorScheme="indigo" _text={{color: 'white'}}>
                         Excluir
                     </Button>
+                    <text>{getErro}</text>
                 </VStack>
             </Box>
         </NativeBaseProvider>
     );
+
 }
